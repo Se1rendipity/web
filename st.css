@@ -1,99 +1,69 @@
 :root {
-  /* 颜色变量 */
-  --color-primary: #1e3a8a;
-  --color-accent:  #f97316;
-  --bg-page:       #f3f4f6;
-  --bg-content:    #ffffff;
-  --text-main:     #111827;
-  --text-secondary:#6b7280;
+  --color-primary:   #1e3a8a;
+  --color-accent:    #f97316;
+  --bg-page:         #f3f4f6;
+  --bg-section:      #ffffff;
+  --text-main:       #111827;
+  --text-secondary:  #6b7280;
 }
 
 /* 全局 */
+* { margin:0; padding:0; box-sizing:border-box; }
 body {
+  font-family: 'Inter', sans-serif;
   background: var(--bg-page);
   color: var(--text-main);
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-  padding: 2rem;
+  line-height:1.6;
 }
 
 /* Header */
 header {
-  text-align: center;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #e5e7eb;
+  text-align:center;
+  padding:3rem 1rem 2rem;
+  background: var(--color-primary);
+  color:#fff;
 }
-.avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  border: 3px solid var(--color-primary);
+header h1 { font-size:2.5rem; font-weight:600; }
+header p  { margin-top:.5rem; color:rgba(255,255,255,0.8); }
+
+/* 内容容器 */
+.container {
+  max-width:800px;
+  margin:-2rem auto 2rem;
+  padding:2rem 1rem;
+  background: var(--bg-section);
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+  border-radius:8px;
 }
 
-/* 主要标题 */
-h1, h2 {
-  color: var(--color-primary);
-}
+/* 区块标题 */
 h2 {
-  border-left: 4px solid var(--color-accent);
-  padding-left: 0.5rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  position:relative;
+  font-size:1.5rem;
+  color:var(--color-primary);
+  margin-bottom:1rem;
+}
+h2::before {
+  content:'';
+  position:absolute;
+  left:0; top:50%;
+  width:4px; height:1.2rem;
+  background:var(--color-accent);
+  transform:translateY(-50%);
 }
 
-/* 链接 hover 效果 */
-a {
-  color: var(--color-primary);
-  transition: color 0.2s;
+/* 链接和按钮 */
+a { color:var(--color-primary); text-decoration:none; }
+a:hover { color:var(--color-accent); }
+a.button {
+  display:inline-block;
+  background:var(--color-accent);
+  color:#fff;
+  padding:.6rem 1.2rem;
+  border-radius:4px;
+  transition:background .2s;
 }
-a:hover {
-  color: var(--color-accent);
-}
-
-/* 按钮 */
-.button {
-  display: inline-block;
-  background: var(--color-accent);
-  color: #fff;
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background 0.2s;
-}
-.button:hover {
-  background: var(--color-primary);
-}
-
-/* Timeline 示例 */
-.timeline {
-  list-style: none;
-  position: relative;
-  padding-left: 1rem;
-}
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 0.5rem;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--color-primary);
-}
-.timeline li {
-  margin-bottom: 1rem;
-  position: relative;
-}
-.timeline .date {
-  display: inline-block;
-  background: var(--color-accent);
-  color: #fff;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  position: absolute;
-  left: -5rem;
-  top: 0;
+a.button:hover {
+  background:var(--color-primary);
 }
 
